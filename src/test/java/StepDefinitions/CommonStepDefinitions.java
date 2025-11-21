@@ -17,7 +17,6 @@ public class CommonStepDefinitions {
 		System.setProperty("webdriver.edge.driver", "C:\\Users\\V\\Downloads\\edgedriver_win64 (4)\\msedgedriver.exe");
 //		WebDriverManager.edgedriver().setup();
 		EdgeOptions options = new EdgeOptions();
-		options.addArguments("--headless=new");
 		options.addArguments("--disable-gpu");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
