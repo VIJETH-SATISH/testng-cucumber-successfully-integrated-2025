@@ -14,8 +14,8 @@ public class CommonStepDefinitions {
 	
 	@Before
 	public void LaunchBrowser() {
-//		System.setProperty("", "")
-		WebDriverManager.edgedriver().setup();
+		System.setProperty("webdriver.edge.driver", "C:\\Users\\V\\Downloads\\edgedriver_win64 (4)\\msedgedriver.exe");
+//		WebDriverManager.edgedriver().setup();
 		EdgeDriver driver = new EdgeDriver();
 //		DriverExtent.getInstance().setDriver(driver);
 		DriverExtent.setDriver(driver);
