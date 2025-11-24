@@ -11,7 +11,6 @@ public class DriverExtent {
 		
 	}
 	
-
 	public static DriverExtent getInstance() {
 		return instance;
 	}
