@@ -28,6 +28,7 @@ public class CommonStepDefinitions {
 	
 	@After
 	public void quitBrowser() {
+		////
 //		DriverExtent.getInstance().getDriver().quit();
 		DriverExtent.getDriver().quit();
 	}
