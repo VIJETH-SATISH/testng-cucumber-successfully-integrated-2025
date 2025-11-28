@@ -11,7 +11,7 @@ public class CommonStepDefinitions {
 	
 	@Before
 	public void LaunchBrowser() {
-		/* NO NEED TO SET SYSTEM PROPERTY AS WE ARE USING WEBDRIVERMANAGER */
+		/*  NO NEED TO SET SYSTEM PROPERTY AS WE ARE USING WEBDRIVERMANAGER  */
 //		System.setProperty("webdriver.edge.driver", "C:\\Users\\V\\Downloads\\edgedriver_win64 (4)\\msedgedriver.exe");
 //		EdgeOptions options = new EdgeOptions();
 //		options.addArguments("--disable-gpu");
