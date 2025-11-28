@@ -13,7 +13,7 @@ public class CommonStepDefinitions {
 	public void LaunchBrowser() {
 		/*NO NEED TO SET SYSTEM PROPERTY AS WE ARE USING WEBDRIVERMANAGER*/
 //		System.setProperty("webdriver.edge.driver", "C:\\Users\\V\\Downloads\\edgedriver_win64 (4)\\msedgedriver.exe");
-//		EdgeOptions options = new EdgeOptions();
+////		EdgeOptions options = new EdgeOptions();
 //		options.addArguments("--disable-gpu");
 //		options.addArguments("--no-sandbox");
 //		options.addArguments("--disable-dev-shm-usage");
