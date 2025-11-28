@@ -1,6 +1,6 @@
 
 @MultiThreadFactory
-Feature: testing multiThread
+Feature: testing multiThread application with Static ThreadLocal
 
   @Gmail
   Scenario: Login into Gmail account

@@ -9,7 +9,14 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/VIJETH-SATISH/testng-cucumber-successfully-integrated-2025.git'
+                git branch: 'main',
+                    url: 'https://github.com/VIJETH-SATISH/testng-cucumber-successfully-integrated-2025.git'
+            }
+        }
+        
+         stage('Build') {
+            steps {
+                echo 'Building...'
             }
         }
 
