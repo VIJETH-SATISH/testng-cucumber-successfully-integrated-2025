@@ -7,9 +7,9 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+         stage('Checkout') {
             steps {
-                git 'https://github.com/VIJETH-SATISH/testng-cucumber-successfully-integrated-2025.git'
+                checkout scm
             }
         }
 
