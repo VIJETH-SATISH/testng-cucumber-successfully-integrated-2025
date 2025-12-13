@@ -34,6 +34,8 @@ public class LoginProcessStepDefinitions {
 	public void i_on_spicejet_enter_destination_and_start_point() {
 //		DriverExtent.getInstance().getDriver().get("https://www.spicejet.com/");
 		DriverExtent.getDriver().get("https://www.spicejet.com/");
+		String apiKey = System.getenv("API_KEY");
+		System.out.println("secret happens to be "+apiKey);
 	}
 
 	

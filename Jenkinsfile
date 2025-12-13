@@ -5,6 +5,10 @@ pipeline {
         maven 'Maven 3.9.9'
         jdk 'JDK21'
     }
+    
+    environment {
+        API_KEY = credentials('MY_API_KEY')
+    }
 
     stages {
          stage('Checkout') {
