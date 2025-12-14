@@ -19,6 +19,7 @@ pipeline {
 
         stage('Run TestNG') {
             steps {
+				
                 bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml'
             }
         }
