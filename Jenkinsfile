@@ -1,7 +1,7 @@
 pipeline {
     agent any
     
- 	paramters{
+ 	parameters{
 		choice(
 	        name: 'ENVIRONMENT',
 	        choices: ['MO', 'QA'],
@@ -27,7 +27,7 @@ pipeline {
 
         stage('Run TestNG') {
             steps {
-                bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml'
+                bat "mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Denv=%ENVIRONMENT%"
             }
         }
     }
