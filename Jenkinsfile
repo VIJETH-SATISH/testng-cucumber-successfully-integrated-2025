@@ -1,5 +1,13 @@
 pipeline {
     agent any
+    
+ 	paramters{
+		choice(
+	        name: 'ENVIRONMENT',
+	        choices: ['MO', 'QA'],
+	        description: 'Environment to run against'
+    	)
+	 }
 
     tools {
         maven 'Maven 3.9.9'
