@@ -1,14 +1,6 @@
 pipeline {
     agent any
     
- 	parameters{
-		choice(
-	        name: 'ENVIRONMENT',
-	        choices: ['MO', 'QA'],
-	        description: 'Environment to run against'
-    	)
-	 }
-
     tools {
         maven 'Maven 3.9.9'
         jdk 'JDK21'
@@ -27,7 +19,7 @@ pipeline {
 
         stage('Run TestNG') {
             steps {
-                bat "mvn clean test -Dsurefire.suiteXmlFiles=testng.xml"
+                bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml'
             }
         }
     }
