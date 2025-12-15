@@ -2,6 +2,7 @@ pipeline {
     agent any
     
     //Jenkins cron syntax MINUTE   HOUR   DAY_OF_MONTH   MONTH   DAY_OF_WEEK
+    
      triggers {
         cron('30 6 * * 1,4') 
     }
