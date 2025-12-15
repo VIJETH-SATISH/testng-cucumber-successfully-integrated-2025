@@ -1,6 +1,14 @@
 pipeline {
     agent any
     
+    parameters {
+	    choice(
+	        name: 'ENVIRONMENT',
+	        choices: ['MO', 'QIN'],
+	        description: 'This parameter is used for passing the environment value at the time of build trigger'
+	    )
+	}
+	
     tools {
         maven 'Maven 3.9.9'
         jdk 'JDK21'
