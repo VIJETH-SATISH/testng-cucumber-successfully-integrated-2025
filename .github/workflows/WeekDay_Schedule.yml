@@ -19,11 +19,6 @@ on:
     options:
        - CHROME
        - EDGE
-   TestTags:
-    description: 'Enter test tags for execution'
-    required: true
-    default: '@Spicejet'
-    type: string
    ToEmailSenderList:
     description: 'Enter To Email Address - Delimited by Commas'
     required: true
