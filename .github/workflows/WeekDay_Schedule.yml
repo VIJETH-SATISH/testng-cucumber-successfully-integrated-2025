@@ -43,4 +43,5 @@ jobs:
       java-version: '21'
 
    - name: Run tests
-     run: mvn clean test -Dsurefire.suiteXmlFiles=testng.xml
+     run: |
+       mvn clean test -Dsurefire.suiteXmlFiles=testng.xml
