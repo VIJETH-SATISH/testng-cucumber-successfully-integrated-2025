@@ -11,6 +11,7 @@ on:
     options:
        - QA3
        - QA1
+	   
    Browser:
     description: 'Execution Browser'
     required: true
@@ -19,6 +20,13 @@ on:
     options:
        - CHROME
        - EDGE
+	   
+	CucumberTags:
+	 description: 'Cucumber tag expression (e.g. @smoke or @regression and not @wip)'
+	 required: true
+	 default: '@smoke'
+	 type: string
+	 
    ToEmailSenderList:
     description: 'Enter To Email Address - Delimited by Commas'
     required: true
