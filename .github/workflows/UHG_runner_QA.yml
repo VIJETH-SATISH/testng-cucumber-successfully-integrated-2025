@@ -51,5 +51,5 @@ jobs:
       java-version: '21'
 
    - name: Run tests
-     run: mvn clean test -Dtest=${{ github.event.inputs.Runner }} -Dcucumber.filter.tags="${{ github.event.inputs.CucumberTags }}"
+     run: mvn clean test "-Dtest=${{ github.event.inputs.Runner }}" "-Dcucumber.filter.tags="${{ github.event.inputs.CucumberTags }}"
  
