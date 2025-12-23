@@ -1,0 +1,58 @@
+name: Automation Tests
+
+on:
+ workflow_dispatch:
+  inputs:
+   Environment:
+    description: 'Execution Environment'
+    required: true
+    default: 'QA3'
+    type: choice
+    options:
+       - QA3
+       - QA1
+   
+   Browser:
+    description: 'Execution Browser'
+    required: true
+    default: 'EDGE'
+    type: choice
+    options:
+       - CHROME
+       - EDGE
+       
+   CucumberTags:
+    description: 'Cucumber tag expression'
+    required: true
+    default: '@smoke'
+    type: string 
+ 
+   ToEmailSenderList:
+    description: 'Enter To Email Address - Delimited by Commas'
+    required: true
+    default: 'vijeth2011@gmail.com'
+    type: string    
+  push:
+   branches: [ main ]
+  pull_request:
+
+jobs:
+ test:
+  runs-on: windows-latest
+
+  steps:
+   - name: Checkout code
+     uses: actions/checkout@v4
+
+   - name: Set up JDK
+     uses: actions/setup-java@v4
+     with:
+      distribution: 'temurin'
+      java-version: '21'
+
+   - name: Run tests
+     run: |
+       mvn clean test \
+         -Dcucumber.filter.tags="${{ github.event.inputs.CucumberTags }}" \
+         -Denv="${{ github.event.inputs.Environment }}" \
+         -Dbrowser="${{ github.event.inputs.Browser }}"
