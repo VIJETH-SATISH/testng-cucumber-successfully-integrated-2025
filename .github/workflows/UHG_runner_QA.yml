@@ -24,7 +24,7 @@ on:
    CucumberTags:
     description: 'Cucumber tag expression'
     required: true
-    default: '@smoke'
+    default: '@Spicejet'
     type: string 
  
    ToEmailSenderList:
