@@ -25,6 +25,7 @@ public class LoginProcessStepDefinitions {
 	@Given("I on amazon enter content to be searched")
 	public void i_enter_content_to_be_searched() {
 //		DriverExtent.getInstance().getDriver().get("https://www.amazon.in/");
+		System.out.println("env happens to be "+ System.getProperty("env"));
 		DriverExtent.getDriver().get("https://www.amazon.in/");
 	}
 	
