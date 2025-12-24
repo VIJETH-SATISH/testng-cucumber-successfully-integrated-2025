@@ -101,8 +101,8 @@
 	        <version>3.5.2</version>
 	        <configuration>
 	          <suiteXmlFiles>
-	            <suiteXmlFile>testng.xml</suiteXmlFile>
-	            <!--<suiteXmlFile>{surefire.suiteXmlFiles}</suiteXmlFile> -->
+	            <!--<suiteXmlFile>testng.xml</suiteXmlFile> -->
+	            <suiteXmlFile>{surefire.suiteXmlFiles}</suiteXmlFile>
 	          </suiteXmlFiles>
 	        </configuration>
 	      </plugin>
