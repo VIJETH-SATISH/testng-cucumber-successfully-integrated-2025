@@ -1,4 +1,4 @@
-name: Automation Tests
+name: PassingTagsDynamicallyWithoutTagsFromRunnerFile
 
 on:
  workflow_dispatch:

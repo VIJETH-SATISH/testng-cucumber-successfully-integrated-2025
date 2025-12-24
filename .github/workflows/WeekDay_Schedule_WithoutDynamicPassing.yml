@@ -1,4 +1,4 @@
-name: Automation Tests
+name: TagsPassedFromCucumberFile
 
 on:
  workflow_dispatch:
