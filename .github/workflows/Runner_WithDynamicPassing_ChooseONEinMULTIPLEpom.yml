@@ -39,6 +39,10 @@ on:
 jobs:
  test:
   runs-on: windows-latest
+  environment: QA3
+
+  env:
+   AMAZON_USER_NAME: ${{ vars.AMAZON_USER_NAME }}
 
   steps:
    - name: Checkout code
@@ -51,5 +55,5 @@ jobs:
       java-version: '21'
 
    - name: Run tests
-     run: mvn -f pom-github-workflow.xml clean test "-Dtest=${{ github.event.inputs.Runner }}" "-Dbrowser=${{ github.event.inputs.Browser }}" "-Denv=${{ github.event.inputs.Environment }}" '-Dcucumber.filter.tags=${{ github.event.inputs.CucumberTags }}'
+     run: mvn -f pom-github-workflow.xml clean test "-Dtest=${{ github.event.inputs.Runner }}" "-Dbrowser=${{ github.event.inputs.Browser }}" "-Denv=${{ github.event.inputs.Environment }}" "-Daws.password=${{ secrets.AMAZON_USER_PWD }}" '-Dcucumber.filter.tags=${{ github.event.inputs.CucumberTags }}'
  

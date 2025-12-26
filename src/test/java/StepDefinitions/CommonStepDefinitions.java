@@ -1,7 +1,14 @@
 package StepDefinitions;
 
+import java.time.Duration;
+
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.google.gson.annotations.Until;
+
+import BasePage.BasePage;
 import ExtentFactory.DriverExtent;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -23,7 +30,12 @@ public class CommonStepDefinitions {
 		WebDriverManager.edgedriver().setup();
 		EdgeDriver driver = new EdgeDriver();
 		DriverExtent.setDriver(driver);
-		driver.manage().window().maximize(); 
+		driver.manage().window().maximize();
+		
+		BasePage.smallWait.set(new WebDriverWait(DriverExtent.getDriver(), Duration.ofSeconds(BasePage.smallWaitTime)));
+		BasePage.mediumWait.set(new WebDriverWait(DriverExtent.getDriver(), Duration.ofSeconds(BasePage.mediumWaitTime)));
+		BasePage.longWait.set(new WebDriverWait(DriverExtent.getDriver(), Duration.ofSeconds(BasePage.longWaitTime)));
+		
 	}
 	
 	@After

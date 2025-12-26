@@ -3,6 +3,7 @@ package PageObjects;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import BasePage.BasePage;
 
@@ -14,9 +15,35 @@ public class AmazonLoginPageObjects extends BasePage {
 	@FindBy(xpath="(//span[contains(text(),'LEGO Speed Champions Ferrari SF-24 F1 Race Car Driver')])[1]")
 	private WebElement item_TXT;
 	
-	public void enterSearchItem() {
-		search_INPUT.sendKeys("lego speed champions");
-		search_INPUT.sendKeys(Keys.ENTER);
+	@FindBy(id="nav-link-accountList")
+	private WebElement Sign_In_Drop_Down_BTN;
+	
+	@FindBy(id="ap_email_login")
+	private WebElement email_TXT;
+	
+	@FindBy(xpath="//input[@type='submit']")
+	private WebElement continue_BTN;
+	
+	@FindBy(id="ap_password")
+	private WebElement pwd_TXT;
+	
+	@FindBy(id="signInSubmit")
+	private WebElement signIn_BTN;
+	
+	
+	public void enterSearchItem() {	
+		
+		String amazon_User = System.getenv("AMAZON_USER_NAME");
+		String aws_Password = System.getProperty("aws.password");
+		
+		longWait.get().until(ExpectedConditions.elementToBeClickable(Sign_In_Drop_Down_BTN)).click();
+		longWait.get().until(ExpectedConditions.elementToBeClickable(email_TXT)).sendKeys(amazon_User);
+		mediumWait.get().until(ExpectedConditions.elementToBeClickable(continue_BTN)).click();
+		longWait.get().until(ExpectedConditions.elementToBeClickable(pwd_TXT)).sendKeys(aws_Password);
+		mediumWait.get().until(ExpectedConditions.elementToBeClickable(signIn_BTN)).click();
+		
+		longWait.get().until(ExpectedConditions.visibilityOf(search_INPUT)).sendKeys("LEGO Speed Champions Ferrari");;
+		longWait.get().until(ExpectedConditions.elementToBeClickable(item_TXT)).click();
 	}
 	
 	public void clickSearchItem() {
