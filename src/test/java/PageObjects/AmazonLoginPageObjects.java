@@ -34,38 +34,16 @@ public class AmazonLoginPageObjects extends BasePage {
 	@FindBy(id="signInSubmit")
 	private WebElement signIn_BTN;
 	
-	@FindBy(id="user-name")
-	private WebElement userName_saucedemo;
-	
-	@FindBy(id="password")
-	private WebElement password_saucedemo;
-	
-	@FindBy(id="login-button")
-	private WebElement loginbutton_saucedemo;
-	
-	public void enterSearchItem() {	
-		
-		String amazon_User = System.getenv("AMAZON_USER_NAME");
-		String aws_Password = System.getProperty("aws.password");
-		
-		/*****
-			longWait.get().until(ExpectedConditions.elementToBeClickable(Hello_BTN)).click();
-			longWait.get().until(ExpectedConditions.elementToBeClickable(email_TXT)).sendKeys(amazon_User);
-			mediumWait.get().until(ExpectedConditions.elementToBeClickable(continue_BTN)).click();
-			longWait.get().until(ExpectedConditions.elementToBeClickable(pwd_TXT)).sendKeys(aws_Password);
-			mediumWait.get().until(ExpectedConditions.elementToBeClickable(signIn_BTN)).click();		
-		****/
-		
-		//standard_user
-		//secret_sauce
-		longWait.get().until(ExpectedConditions.elementToBeClickable(userName_saucedemo)).sendKeys(amazon_User);
-		longWait.get().until(ExpectedConditions.elementToBeClickable(password_saucedemo)).sendKeys(aws_Password);
-		longWait.get().until(ExpectedConditions.elementToBeClickable(loginbutton_saucedemo)).click();
-		
-		/*
+	public void enterSearchItem() {			
+		longWait.get().until(ExpectedConditions.elementToBeClickable(Hello_BTN)).click();
+		longWait.get().until(ExpectedConditions.elementToBeClickable(email_TXT)).sendKeys("vijeth2011@gmail.com");
+		mediumWait.get().until(ExpectedConditions.elementToBeClickable(continue_BTN)).click();
+		longWait.get().until(ExpectedConditions.elementToBeClickable(pwd_TXT)).sendKeys("Vij");
+		mediumWait.get().until(ExpectedConditions.elementToBeClickable(signIn_BTN)).click();		
+
 		longWait.get().until(ExpectedConditions.visibilityOf(search_INPUT)).sendKeys("LEGO Speed Champions Ferrari");;
 		longWait.get().until(ExpectedConditions.elementToBeClickable(item_TXT)).click();
-		*/
+		
 	}
 	
 	public void clickSearchItem() {

@@ -16,5 +16,10 @@ Feature: testing multiThread application with Static ThreadLocal
   Scenario Outline: Search flight on spicejet
     Given I on spicejet enter destination and start point 
     And I select the Date of travel
+    
+  @saucedemo_GithubWorkflow_secret
+  Scenario Outline: Fetching Username and Password from Github secrets Actions
+    Given I login into saucedemo page using user credentials from Github secrets
+    And I should land on the home page
  
  
