@@ -55,5 +55,5 @@ jobs:
       java-version: '21'
 
    - name: Run tests
-     run: mvn -f pom-github-workflow.xml clean test "-Dtest=${{ github.event.inputs.Runner }}" "-Dbrowser=${{ github.event.inputs.Browser }}" "-Denv=${{ github.event.inputs.Environment }}" "-DdemoSauce.password=${{ secrets.SAUCEDEMO_USER_PWD }}" '-Dcucumber.filter.tags=${{ github.event.inputs.CucumberTags }}'
+     run: mvn -f pom-github-workflow.xml clean test "-Dtest=${{ github.event.inputs.Runner }}" "-Dbrowser=${{ github.event.inputs.Browser }}" "-DENVIRONMENT=${{ github.event.inputs.Environment }}" "-DdemoSauce.password=${{ secrets.SAUCEDEMO_USER_PWD }}" '-Dcucumber.filter.tags=${{ github.event.inputs.CucumberTags }}'
  

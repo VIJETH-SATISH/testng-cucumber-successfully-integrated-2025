@@ -57,7 +57,7 @@ public class LoginProcessStepDefinitions {
 		String env ;
 		try {
 			env = ConfigUtil.getEnvironment(); //QA3
-			DriverExtent.getDriver().get(ConfigUtil.getConfigProperty(env + "_URL"));//QA3_URL
+			DriverExtent.getDriver().get(ConfigUtil.getConfigProperty(env+"_SAUCEDEMO_URL"));//QA3_URL
 			sauceDemoGithubSecretesPageObjects_obj.enterTheCredentialsToLogin();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

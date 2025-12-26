@@ -24,10 +24,12 @@ public class ConfigUtil {
 		System.out.println("inside get config looking for property "+ strKey);
 		
 		if(!Strings.isNullOrEmpty(System.getProperty(strKey))) {
+			System.out.println("value Has been found in the github properties for the property"+ strKey);
 			return System.getProperty(strKey);
 		} else {
 			
-			String strData = prop.getProperty(strKey);			
+			String strData = prop.getProperty(strKey);	
+			
 			if(strData != null && strData != ""){
 				strData = strData.trim();			
 			}else {
@@ -39,7 +41,7 @@ public class ConfigUtil {
 				}
 			}
 			System.out.println("At the end of config looking for property "+ strKey);
-			System.out.println("strData found to be " +strData);
+			System.out.println("strData has been found in config file and value happens to be " +strData);
 			return strData;
 		}
 	}
