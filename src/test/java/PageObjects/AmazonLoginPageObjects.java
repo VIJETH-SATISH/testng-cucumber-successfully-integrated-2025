@@ -58,8 +58,8 @@ public class AmazonLoginPageObjects extends BasePage {
 		
 		//standard_user
 		//secret_sauce
-		longWait.get().until(ExpectedConditions.elementToBeClickable(userName_saucedemo)).sendKeys("standard_user");
-		longWait.get().until(ExpectedConditions.elementToBeClickable(password_saucedemo)).sendKeys("secret_sauce");
+		longWait.get().until(ExpectedConditions.elementToBeClickable(userName_saucedemo)).sendKeys(amazon_User);
+		longWait.get().until(ExpectedConditions.elementToBeClickable(password_saucedemo)).sendKeys(aws_Password);
 		longWait.get().until(ExpectedConditions.elementToBeClickable(loginbutton_saucedemo)).click();
 		
 		/*
