@@ -38,7 +38,8 @@ public class ConfigUtil {
 					System.out.println("Property with name - "+ strKey + "is not initialised in the config file");
 				}
 			}
-			
+			System.out.println("At the end of config looking for property "+ strKey);
+			System.out.println("strData found to be " +strData);
 			return strData;
 		}
 	}
