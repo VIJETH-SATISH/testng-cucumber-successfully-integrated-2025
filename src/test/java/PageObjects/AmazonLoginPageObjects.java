@@ -37,9 +37,9 @@ public class AmazonLoginPageObjects extends BasePage {
 		String aws_Password = System.getProperty("aws.password");
 		
 		longWait.get().until(ExpectedConditions.elementToBeClickable(Sign_In_Drop_Down_BTN)).click();
-		longWait.get().until(ExpectedConditions.elementToBeClickable(email_TXT)).sendKeys(amazon_User);
+		longWait.get().until(ExpectedConditions.elementToBeClickable(email_TXT)).sendKeys("vijeth2011@gmail.com");
 		mediumWait.get().until(ExpectedConditions.elementToBeClickable(continue_BTN)).click();
-		longWait.get().until(ExpectedConditions.elementToBeClickable(pwd_TXT)).sendKeys(aws_Password);
+		longWait.get().until(ExpectedConditions.elementToBeClickable(pwd_TXT)).sendKeys("Vijuamazon@123");
 		mediumWait.get().until(ExpectedConditions.elementToBeClickable(signIn_BTN)).click();
 		
 		longWait.get().until(ExpectedConditions.visibilityOf(search_INPUT)).sendKeys("LEGO Speed Champions Ferrari");;

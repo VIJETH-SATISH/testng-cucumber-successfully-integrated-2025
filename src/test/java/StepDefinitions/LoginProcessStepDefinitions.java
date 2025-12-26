@@ -30,7 +30,7 @@ public class LoginProcessStepDefinitions {
 //		DriverExtent.getInstance().getDriver().get("https://www.amazon.in/");
 //		DriverExtent.getDriver().get("https://www.amazon.in/");	
 		System.out.println("env happens to be "+ System.getProperty("env"));
-		
+		System.out.println("QA3 property happens to be "+ System.getProperty("QA3"));
 		try {
 			env = ConfigUtil.getEnvironment(); //QA3
 			DriverExtent.getDriver().get(ConfigUtil.getConfigProperty(env + "_URL"));//QA3_URL
