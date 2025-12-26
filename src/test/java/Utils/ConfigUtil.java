@@ -21,6 +21,8 @@ public class ConfigUtil {
 			prop.load(new FileInputStream(userDirectory+"/config.properties"));
 		}
 		
+		System.out.println("inside get config looking for property "+ strKey);
+		
 		if(!Strings.isNullOrEmpty(System.getProperty(strKey))) {
 			return System.getProperty(strKey);
 		} else {
