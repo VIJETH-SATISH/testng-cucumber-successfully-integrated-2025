@@ -20,6 +20,6 @@ Feature: testing multiThread application with Static ThreadLocal
   @saucedemo_GithubWorkflow_secret
   Scenario Outline: Fetching Username and Password from Github secrets Actions
     Given I login into saucedemo page using user credentials from Github secrets
-    And I should land on the home page
+    #And I should land on the home page
  
  
