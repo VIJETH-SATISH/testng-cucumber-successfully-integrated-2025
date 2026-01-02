@@ -16,6 +16,8 @@ pipeline {
     
     environment {
         API_KEY = credentials('MY_API_KEY')
+        SAUCEDEMO_USER_NAME = credentials('SAUCEDEMO_USER_NAME')
+        SAUCEDEMO_USER_PWD = credentials('SAUCEDEMO_USER_PWD')
     }
 
     stages {
@@ -27,7 +29,7 @@ pipeline {
 
         stage('Run TestNG') {
             steps {				
-                bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Denv=${ENVIRONMENT}'
+                bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Denv=${ENVIRONMENT} -DdemoSauce.password=%SAUCEDEMO_USER_PWD%'
             }
         }
     }

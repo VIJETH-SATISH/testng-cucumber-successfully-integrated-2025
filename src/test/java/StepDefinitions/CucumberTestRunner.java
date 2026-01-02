@@ -12,7 +12,7 @@ import io.cucumber.testng.CucumberOptions;
 			plugin = {"html:target/cucumber-html-report"},
 			glue = {"StepDefinitions"},
 			features = {"src/test/resources/features"},
-			tags = "@Spicejet",
+			tags = "@saucedemo_GithubWorkflow_secret",
 			monochrome = true,
 			dryRun = false					
 )
