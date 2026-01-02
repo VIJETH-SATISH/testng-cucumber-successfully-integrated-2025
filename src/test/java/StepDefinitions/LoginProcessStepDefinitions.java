@@ -31,11 +31,11 @@ public class LoginProcessStepDefinitions {
 	public void i_enter_content_to_be_searched() {
 		String env ;
 //		DriverExtent.getDriver().get("https://www.amazon.in/");		
-		System.out.println("env happens to be "+ System.getProperty("env"));
+		System.out.println("ENVIRONMENT happens to be "+ System.getProperty("ENVIRONMENT"));
 		
 		try {
 			env = ConfigUtil.getEnvironment(); //QA3
-			DriverExtent.getDriver().get(ConfigUtil.getConfigProperty(env + "_URL"));//QA3_URL
+			DriverExtent.getDriver().get(ConfigUtil.getConfigProperty(env + "_AMAZON_URL"));//QA3_URL
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

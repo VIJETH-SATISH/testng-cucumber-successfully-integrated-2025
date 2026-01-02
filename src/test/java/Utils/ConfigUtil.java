@@ -21,10 +21,10 @@ public class ConfigUtil {
 			prop.load(new FileInputStream(userDirectory+"/config.properties"));
 		}
 		
-		System.out.println("inside get config looking for property "+ strKey);
+		System.out.println("inside getconfig method looking for property "+ strKey);
 		
 		if(!Strings.isNullOrEmpty(System.getProperty(strKey))) {
-			System.out.println("value Has been found in the github properties for the property"+ strKey);
+			System.out.println("Value Has been found in the github/ Jenkins File for the property "+ strKey + " with value = "+System.getProperty(strKey));
 			return System.getProperty(strKey);
 		} else {
 			

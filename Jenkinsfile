@@ -4,7 +4,7 @@ pipeline {
     parameters {
 	    choice(
 	        name: 'ENVIRONMENT',
-	        choices: ['MO', 'QIN'],
+	        choices: ['QA1', 'QA3'],
 	        description: 'This parameter is used for passing the environment value at the time of build trigger'
 	    )
 	}
@@ -26,9 +26,8 @@ pipeline {
         }
 
         stage('Run TestNG') {
-            steps {
-				
-                bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml'
+            steps {				
+                bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml -Denv=${ENVIRONMENT}'
             }
         }
     }
