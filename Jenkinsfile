@@ -36,7 +36,7 @@ pipeline {
 
     post {
         always {
-            publishTestNGResults testNGPattern: '**/test-output/testng-results.xml'
+            junit 'target/surefire-reports/*.xml'
         }
               
 		success {
