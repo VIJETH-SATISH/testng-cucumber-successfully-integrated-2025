@@ -19,6 +19,7 @@ public class SauceDemoGithubSecretesPageObjects extends BasePage{
 	
 	public void enterTheCredentialsToLogin() {
 		
+		
 		String sauceDemo_User = System.getenv("SAUCEDEMO_USER_NAME");
 		String sauceDemo_Password = System.getProperty("demoSauce.password");
 		
