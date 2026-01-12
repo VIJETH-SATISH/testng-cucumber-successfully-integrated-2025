@@ -48,6 +48,7 @@ jobs:
   environment: QA3
 
   env:
+   SAUCEDEMO_USER_NAME: ${{ vars.SAUCEDEMO_USER_NAME }}
    SAUCEDEMO_USER_PWD: ${{ vars.SAUCEDEMO_USER_PWD }}
 
   steps:
