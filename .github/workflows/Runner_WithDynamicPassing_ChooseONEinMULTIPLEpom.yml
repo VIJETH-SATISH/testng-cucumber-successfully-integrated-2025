@@ -20,6 +20,12 @@ on:
     options:
        - CHROME
        - EDGE
+
+   Runner:
+    description: 'Cucumber Runner class name'
+    required: true
+    default: 'CucumberGithubWorkflowTestRunner'
+    type: string
        
    CucumberTags:
     description: 'Cucumber tag expression'
