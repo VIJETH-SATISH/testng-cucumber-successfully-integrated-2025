@@ -59,7 +59,16 @@ jobs:
      with:
       distribution: 'temurin'
       java-version: '21'
-      cache: maven
+      
+   - name: Cache Maven Packages
+     uses: actions/cache@v4
+     with:
+       path: ~/.m2/repository
+       key: ${{ runner.os }}-maven-${{ hashFiles('**/pom-github-workflow-jenkinsfile-integrated.xml') }}
+       restore-keys: ${{ runner.os }}-maven-
+
+   - name: Run tests
+     run: mvn -f pom-github-workflow-jenkinsfile-integrated.xml clean test "-Dtest=${{ github.event.inputs.Runner }}" "-Dbrowser=${{ github.event.inputs.Browser }}" "-DENVIRONMENT=${{ github.event.inputs.Environment }}" "-DdemoSauce.password=${{ secrets.SAUCEDEMO_USER_PWD }}" '-Dcucumber.filter.tags=${{ github.event.inputs.CucumberTags }}'
       
    - name: Upload report
      uses: actions/upload-artifact@v4
@@ -68,7 +77,4 @@ jobs:
      with:
        name: HTML_Suite
        path: "${{ github.workspace}}/target/cucumber-html-reports/"
-
-   - name: Run tests
-     run: mvn -f pom-github-workflow-jenkinsfile-integrated.xml clean test "-Dtest=${{ github.event.inputs.Runner }}" "-Dbrowser=${{ github.event.inputs.Browser }}" "-DENVIRONMENT=${{ github.event.inputs.Environment }}" "-DdemoSauce.password=${{ secrets.SAUCEDEMO_USER_PWD }}" '-Dcucumber.filter.tags=${{ github.event.inputs.CucumberTags }}'
  
