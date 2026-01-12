@@ -76,5 +76,5 @@ jobs:
      continue-on-error: true
      with:
        name: HTML_Suite
-       path: "${{ github.workspace}}/target/cucumber-html-reports/"
+       path: ${{ github.workspace}}\target\cucumber-html-reports\
  
