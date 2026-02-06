@@ -22,7 +22,7 @@ public class SauceDemoGithubSecretesPageObjects extends BasePage{
 		/*HAS BEEN MADE COMPATIBLE FOR JENKINS PIPEINE AND GITHUB WORKFLOW*/
 		String sauceDemo_User = System.getenv("SAUCEDEMO_USER_NAME");
 		String sauceDemo_Password = System.getProperty("demoSauce.password");
-				
+		
 		//username:standard_user
 		//password:secret_sauce
 		longWait.get().until(ExpectedConditions.elementToBeClickable(userName_saucedemo)).sendKeys(sauceDemo_User);
