@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-			plugin = {"html:target/cucumber-html-report.html"},
+			plugin = {"html:target/cucumber-html-report"},
 			glue = {"StepDefinitions"},
 			features = {"src/test/resources/features"},
 			tags = "@Spicejet",

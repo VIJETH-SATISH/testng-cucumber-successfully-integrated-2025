@@ -39,7 +39,7 @@ pipeline {
             junit 'target/surefire-reports/*.xml'
             
             // Archive reports (like GitHub artifact)
-            archiveArtifacts artifacts: 'target/*.html', fingerprint: true
+            archiveArtifacts artifacts: 'target/cucumber-html-report*', fingerprint: true
             
             publishHTML([
               reportDir: 'target',
@@ -63,9 +63,12 @@ pipeline {
          Build: ${env.BUILD_NUMBER}
          Environment: ${params.ENVIRONMENT}
          
+         Report link:
+         ${env.BUILD_URL}artifact/target/cucumber-html-report.html
+
          Cucumber report attached.
          """,
-            attachmentsPattern: 'target/*.html'
+            attachmentsPattern: 'target/cucumber-html-report*'
             )
         }
         
