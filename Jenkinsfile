@@ -64,7 +64,7 @@ pipeline {
          Environment: ${params.ENVIRONMENT}
          
          Report link:
-         ${env.BUILD_URL}artifact/target/cucumber-html-report.html
+          ${env.BUILD_URL}artifact/target/cucumber-html-report.html
 
          Cucumber report attached.
          """,
