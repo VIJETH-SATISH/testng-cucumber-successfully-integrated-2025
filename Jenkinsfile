@@ -38,9 +38,10 @@ pipeline {
         always {
             junit 'target/surefire-reports/*.xml'
             
-            // Archive reports (like GitHub artifact)
+            // Archive reports (like GitHub artifact) to make it donwloadle in Jenkins
             archiveArtifacts artifacts: 'target/cucumber-html-report*', fingerprint: true
             
+            //Make it viewable on Jenkins UI itself
             publishHTML([
               reportDir: 'target',
               reportFiles: 'cucumber-html-report.html',
