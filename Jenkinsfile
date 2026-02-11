@@ -56,7 +56,16 @@ pipeline {
             emailext (
                 to: 'vijeth2011@gmail.com',
                 subject: "SUCCESS: ${env.JOB_NAME} Build #${env.BUILD_NUMBER}",
-                body: "Build completed successfully."
+                body: """
+         Build Successful
+         
+         Job: ${env.JOB_NAME}
+         Build: ${env.BUILD_NUMBER}
+         Environment: ${params.ENVIRONMENT}
+         
+         Cucumber report attached.
+         """,
+            attachmentsPattern: 'target/cucumber-html-report.html'
             )
         }
         
