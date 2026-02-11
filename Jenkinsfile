@@ -42,12 +42,12 @@ pipeline {
             archiveArtifacts artifacts: 'target/**/*', fingerprint: true
             
             publishHTML([
-              reportDir: 'target/cucumber-html-report',
-              reportFiles: 'index.html',
+              reportDir: 'target',
+              reportFiles: 'cucumber-html-report.html',
               reportName: 'Cucumber HTML Report',
               keepAll: true,
               alwaysLinkToLastBuild: true,
-              allowMissing: true
+              allowMissing: false
             ])
         
         }
