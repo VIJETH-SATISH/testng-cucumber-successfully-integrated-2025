@@ -11,7 +11,7 @@ import io.cucumber.junit.CucumberOptions;
 			plugin = {"html:target/cucumber-html-report"},
 			glue = {"StepDefinitions"},
 			features = {"src/test/resources/features"},
-			tags = "@Amazon",
+			tags = "@Spicejet",
 			monochrome = true,
 			dryRun = false
 

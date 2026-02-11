@@ -37,6 +37,19 @@ pipeline {
     post {
         always {
             junit 'target/surefire-reports/*.xml'
+            
+            // Archive reports (like GitHub artifact)
+            archiveArtifacts artifacts: 'target/**/*', fingerprint: true
+            
+            publishHTML([
+              reportDir: 'target/cucumber-html-report',
+              reportFiles: 'index.html',
+              reportName: 'Cucumber HTML Report',
+              keepAll: true,
+              alwaysLinkToLastBuild: true,
+              allowMissing: true
+            ])
+        
         }
               
 		success {
