@@ -1,0 +1,81 @@
+name: PassingTagsDynamicallyWithoutTagsFromRunnerFile
+
+on:
+ workflow_dispatch:
+  inputs:
+   Environment:
+    description: 'Execution Environment'
+    required: true
+    default: 'QA3'
+    type: choice
+    options:
+       - QA3
+       - QA1
+   
+   Browser:
+    description: 'Execution Browser'
+    required: true
+    default: 'EDGE'
+    type: choice
+    options:
+       - CHROME
+       - EDGE
+
+   Runner:
+    description: 'Cucumber Runner class name'
+    required: true
+    default: 'CucumberGithubWorkflowTestRunner'
+    type: string
+       
+   CucumberTags:
+    description: 'Cucumber tag expression'
+    required: true
+    default: '@Amazon'
+    type: string 
+ 
+   ToEmailSenderList:
+    description: 'Enter To Email Address - Delimited by Commas'
+    required: true
+    default: 'vijeth2011@gmail.com'
+    type: string    
+  push:
+   branches: [ main ]
+  pull_request:
+
+jobs:
+ test:
+  runs-on: windows-latest
+  environment: QA3
+
+  env:
+   SAUCEDEMO_USER_NAME: ${{ vars.SAUCEDEMO_USER_NAME }}
+   SAUCEDEMO_USER_PWD: ${{ vars.SAUCEDEMO_USER_PWD }}
+
+  steps:
+   - name: Checkout code
+     uses: actions/checkout@v4
+
+   - name: Set up JDK
+     uses: actions/setup-java@v4
+     with:
+      distribution: 'temurin'
+      java-version: '21'
+      
+   - name: Cache Maven Packages
+     uses: actions/cache@v4
+     with:
+       path: ~/.m2/repository
+       key: ${{ runner.os }}-maven-${{ hashFiles('**/pom-github-workflow-jenkinsfile-integrated.xml') }}
+       restore-keys: ${{ runner.os }}-maven-
+
+   - name: Run tests
+     run: mvn -f pom-github-workflow-jenkinsfile-integrated.xml clean test "-Dtest=${{ github.event.inputs.Runner }}" "-Dbrowser=${{ github.event.inputs.Browser }}" "-DENVIRONMENT=${{ github.event.inputs.Environment }}" "-DdemoSauce.password=${{ secrets.SAUCEDEMO_USER_PWD }}" '-Dcucumber.filter.tags=${{ github.event.inputs.CucumberTags }}'
+      
+   - name: Upload report
+     uses: actions/upload-artifact@v4
+     if: always()
+     continue-on-error: true
+     with:
+       name: HTML_Suite
+       path: ${{ github.workspace}}\target\cucumber-html-reports\
+ 

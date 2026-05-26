@@ -1,6 +1,7 @@
 package PageObjects;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,9 +35,11 @@ public class AmazonLoginPageObjects extends BasePage {
 	@FindBy(id="signInSubmit")
 	private WebElement signIn_BTN;
 	
-	public void enterSearchItem() {			
+	public void enterSearchItem() {		
+	
 		longWait.get().until(ExpectedConditions.elementToBeClickable(Hello_BTN)).click();
 		longWait.get().until(ExpectedConditions.elementToBeClickable(email_TXT)).sendKeys("vijeth2011@gmail.com");
+	
 		mediumWait.get().until(ExpectedConditions.elementToBeClickable(continue_BTN)).click();
 		longWait.get().until(ExpectedConditions.elementToBeClickable(pwd_TXT)).sendKeys("Vij");
 		mediumWait.get().until(ExpectedConditions.elementToBeClickable(signIn_BTN)).click();		
