@@ -1,5 +1,4 @@
-name: PassingTagsDynamicallyWithoutTagsFromRunnerFile
-
+name: TestingTheFeatureBranch
 
 on:
  workflow_dispatch:
