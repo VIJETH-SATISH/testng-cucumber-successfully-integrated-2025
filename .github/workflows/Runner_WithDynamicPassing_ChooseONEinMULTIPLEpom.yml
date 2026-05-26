@@ -6,11 +6,11 @@ on:
    Environment:
     description: 'Execution Environment'
     required: true
-    default: 'QA5'
+    default: 'QA3'
     type: choice
     options:
-       - QA5
-       - QA7
+       - QA3
+       - QA1
    
    Browser:
     description: 'Execution Browser'
